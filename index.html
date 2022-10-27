@@ -2,37 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://kit.fontawesome.com/ee914c97d9.js"
       crossorigin="anonymous"
     ></script>
-    <title>WebRTC P2P</title>
+    <title>PeerChat</title>
   </head>
   <body>
-    <div id="videos">
-      <video class="video-player" id="user-1" autoplay playsinline></video>
-      <video class="video-player" id="user-2" autoplay playsinline></video>
-    </div>
-
-    <div id="controls">
-      <div class="control-container" id="camera-btn">
-        <i class="fa-solid fa-camera"></i>
-      </div>
-
-      <div class="control-container" id="mic-btn">
-        <i class="fa-solid fa-microphone"></i>
-      </div>
-
-      <a href="lobby.html">
-        <div class="control-container" id="leave-btn">
-          <i class="fa-solid fa-phone"></i>
-        </div>
+    <!-- :::::::::::: Navigation Bar :::::::::::: -->
+    <nav class="nav">
+      <a href="#" class="nav__link nav__link--active">
+        <i class="fa-solid fa-home nav__icon"></i>
+        <span class="nav__text">Home</span>
       </a>
+      <a href="src/profile/profile.html" class="nav__link">
+        <i class="fa-sharp fa-solid fa-user nav__icon"></i>
+        <span class="nav__text">Profile</span>
+      </a>
+      <a href="src/settings/settings.html" class="nav__link">
+        <i class="fa-solid fa-gear nav__icon"></i>
+        <span class="nav__text">Settings</span>
+      </a>
+    </nav>
 
-      <!-- <i class="fa-solid fa-user-plus"></i> // invite -->
-    </div>
+    <!-- :::::::::::: Home/Lobby :::::::::::: -->
+    <main>
+      <section class="header">
+        <h2>Welcome 👋</h2>
+      </section>
+      <section class="logo">
+        <div class="loader"></div>
+        <div class="loader loader__reverse"></div>
+      </section>
+      <section class="form__container">
+        <p>Create/Join a Room!</p>
+
+        <form id="room-form">
+          <input type="text" name="invite_link" required />
+          <input type="submit" value="Join Room" />
+        </form>
+      </section>
+    </main>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

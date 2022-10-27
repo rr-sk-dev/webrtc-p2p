@@ -1,102 +1,158 @@
+/* :::::::::::: Global :::::::::::: */
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    --bgColor: #fff;
+    --darkGrey: #242424;
+    --primary: #009578;
+    --secondary: #845695;
+
+    --navHeight: 55px;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body {
-  padding: 1em;
+/* :::::::::::: Navigation Bar :::::::::::: */
+.nav {
+    background-color: var(--bgColor);
+    position: fixed;
+    bottom: 0;
+    height: var(--navHeight);
+    width: 100%;
+    display: flex;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
-a {
-  text-decoration: none;
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 13px;
+    color: #444;
+    text-decoration: none;
+    transition: background-color 0.1 ease-in-out;
 }
 
-#videos {
-  display: grid;
-  grid-template-columns: 1fr;
-  height: 100vh;
-  overflow: hidden;
+.nav__link:hover {
+    background-color: #eee;
 }
 
-.video-player {
-  background-color: black;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.nav__link--active {
+    color: var(--primary);
 }
 
-#user-2 {
-  display: none;
+.nav__icon {
+    font-size: 18px;
 }
 
-.smallFrame {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  height: 170px;
-  width: 300px;
-  border-radius: 5px;
-  border: 2px solid #b366f9;
-  -webkit-box-shadow: 3px 3px 15px -1px rgba(0, 0, 0, 0.77);
-  box-shadow: 3px 3px 15px -1px rgba(0, 0, 0, 0.77);
-  z-index: 999;
+/* :::::::::::: Home/Lobby :::::::::::: */
+main {
+    height: calc(100vh - var(--navHeight));
+    padding: 10px;
 }
 
-#controls {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 1em;
+.header {
+    margin-top: 30px;
 }
 
-.control-container {
-  background-color: rgb(179, 102, 249, .9);
-  padding: 20px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+main section h2 {
+    text-align: center;
 }
 
-.control-container i {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  width: 30px;
-  font-size: 25px !important;
-  color: #fff;
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 50px 0;
 }
 
-#leave-btn {
-  background-color: rgb(255, 80, 80, 1);
+.loader {
+    border: 10px solid var(--secondary);
+    /* Light grey */
+    border-top: 10px solid #fff;
+    border-bottom: 10px solid #fff;
+    /* Blue */
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    animation: spin 2s linear infinite;
 }
 
+.loader__reverse {
+    animation: spin__reverse 2s linear infinite;
+
+}
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#room-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+input {
+    width: 100%;
+    max-width: 85%;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 16px 20px;
+    background-color: #3f434a;
+}
+
+input[type='submit'] {
+    background-color: var(--secondary);
+}
+
+/* :::::::::::: keyframes :::::::::::: */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin__reverse {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/* :::::::::::: Media Queries :::::::::::: */
 @media screen and (max-width: 600px) {
 
-  .smallFrame {
-    height: 80px;
-    width: 120px;
-  }
-
-  .control-container i {
-    height: 15px;
-    width: 15px;
-    font-size: 20px !important;
-  }
+    #form-container-header {
+        border-radius: 10px 10px 0 0;
+        padding: 10px;
+        line-height: 0;
+    }
 
 }

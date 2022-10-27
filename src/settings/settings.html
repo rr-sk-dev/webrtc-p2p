@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/ee914c97d9.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>PeerChat</title>
+  </head>
+  <body>
+    <!-- :::::::::::: Navigation Bar :::::::::::: -->
+    <nav class="nav">
+      <a href="../../index.html" class="nav__link">
+        <i class="fa-solid fa-home nav__icon"></i>
+        <span class="nav__text">Home</span>
+      </a>
+      <a href="../profile/profile.html" class="nav__link">
+        <i class="fa-sharp fa-solid fa-user nav__icon"></i>
+        <span class="nav__text">Profile</span>
+      </a>
+      <a href="#" class="nav__link nav__link--active">
+        <i class="fa-solid fa-gear nav__icon"></i>
+        <span class="nav__text">Settings</span>
+      </a>
+    </nav>
+
+    <!-- :::::::::::: Settings :::::::::::: -->
+    <main>
+      <h2>Settings</h2>
+
+      <div class="settings-container">
+        <div id="audioSettings" class="audio-settings">
+          <label for="audio">Audio:</label>
+          <div class="audio-select">
+            <select name="audio" id="audioSelect"></select>
+            <span class="custom-arrow"></span>
+          </div>
+        </div>
+        <div id="videoSettings" class="video-settings">
+          <label for="video">Camera:</label>
+          <div class="video-select">
+            <select name="video" id="videoSelect"></select>
+            <span class="custom-arrow"></span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="settings.ts"></script>
+  </body>
+</html>
